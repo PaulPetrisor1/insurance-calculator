@@ -8,85 +8,83 @@ import * as math from 'mathjs';
 
 class App extends React.Component {
 
-constructor(props){
+    constructor(props) {
 
-super(props);
+        super(props);
+        // setting initial state  to an empty string
+        this.state = {insert: ""};
+    }
 
-this.state={insert:""};        // seeting initial state  to an empty string
+    //function to  adding a value to the current state
+    insertInput = value => {
+        if (value === '^' || value === '%' || value === '+' || value === '-' || value === '*' || value === '/') {
+            if (value === this.state.insert[this.state.insert.length - 1]) {
+                value = ""
+            }
+        }
+        this.setState({insert: this.state.insert + value})
 
-}
+    };
 
+    insertEqual = () => {
+        // created a function that uses the mathjs library in order to do the calculations
+        this.setState({insert: math.evaluate(this.state.insert)})
 
-  // funtion to  adding a value to the current state
-insertInput = value =>{
-
-this.setState({insert: this.state.insert + value})
-
-}
-
-insertEqual=()=>{
-
-this.setState({insert: math.evaluate(this.state.insert) })  // created a function that uses the mathjs library in order to do the calculations
-
-}
-
-
-
-
-  render() {
-
-    return (<div className="application">
-
-      <div className="container">
-
-      <Insert insert={this.state.insert} />
-
-        <div className="row">
-                <Clear clearPrompt={() => this.setState({ insert: "" })}>AC</Clear>
-                <Button Click={this.insertInput}>^</Button>
-                <Button Click={this.insertInput}>%</Button>
-                <Button Click={this.insertInput}>+</Button>
-            </div>
+    };
 
 
-        <div className="row">
-                  <Button Click={this.insertInput}>1</Button>
-                  <Button Click={this.insertInput}>2</Button>
-                  <Button Click={this.insertInput}>3</Button>
-                  <Button Click={this.insertInput}>-</Button>
+    render() {
 
-        </div>
+        return (<div className="application">
+
+            <div className="container">
+
+                <Insert insert={this.state.insert}/>
+
+                <div className="row">
+                    <Clear clearPrompt={() => this.setState({insert: ""})}>AC</Clear>
+                    <Button Click={this.insertInput}>^</Button>
+                    <Button Click={this.insertInput}>%</Button>
+                    <Button Click={this.insertInput}>+</Button>
+                </div>
 
 
-        <div className="row">
+                <div className="row">
+                    <Button Click={this.insertInput}>1</Button>
+                    <Button Click={this.insertInput}>2</Button>
+                    <Button Click={this.insertInput}>3</Button>
+                    <Button Click={this.insertInput}>-</Button>
+
+                </div>
+
+
+                <div className="row">
                     <Button Click={this.insertInput}>4</Button>
                     <Button Click={this.insertInput}>5</Button>
                     <Button Click={this.insertInput}>6</Button>
                     <Button Click={this.insertInput}>*</Button>
-        </div>
+                </div>
 
 
-
-        <div className="row">
+                <div className="row">
                     <Button Click={this.insertInput}>7</Button>
                     <Button Click={this.insertInput}>8</Button>
                     <Button Click={this.insertInput}>9</Button>
                     <Button Click={this.insertInput}>/</Button>
-        </div>
+                </div>
 
 
+                <div className="row">
+                    <Button Click={this.insertInput}>.</Button>
+                    <Button Click={this.insertInput}>0</Button>
+                    <Button Click={() => this.insertEqual()}>=</Button>
+                </div>
 
-        <div className="row">
-                  <Button Click={this.insertInput}>.</Button>
-                  <Button Click={this.insertInput}>0</Button>
-                  <Button Click={() => this.insertEqual( )}>=</Button>
-        </div>
+            </div>
 
-      </div>
+        </div>);
 
-    </div>);
-
-  }
+    }
 }
 
 export default App;
