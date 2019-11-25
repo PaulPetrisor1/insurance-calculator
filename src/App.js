@@ -15,14 +15,16 @@ class App extends React.Component {
         this.state = {insert: ""};
     }
 
-    //function to  adding a value to the current state
     insertInput = value => {
 
-        // the next sections ensures that the user won't be able to input more than two consecutive operators\
-        console.log("test")
-        if (value === '^' || value === '%' || value === '+' || value === '-' || value === '*' || value === '/') {
+        // the next sections ensures that the user won't be able to input more than two consecutive operators
+        // and that you cannot input an operator as first insertion
 
-            if (value === this.state.insert[this.state.insert.length - 1]
+        //not the best looking codeblock, I know.
+        console.log("test")
+        if (value === '^' || value === '%' || value === '+' || value === '-' || value === '*' || value === '/' ) {
+
+            if (this.state.insert == "" ||value === this.state.insert[this.state.insert.length - 1]
                 || (this.state.insert[this.state.insert.length - 1] === '^'
                     || this.state.insert[this.state.insert.length - 1] === '%'
                     || this.state.insert[this.state.insert.length - 1] === '+'
@@ -40,6 +42,10 @@ class App extends React.Component {
         this.setState({insert: this.state.insert + value})
 
     };
+
+
+
+
 
     insertEqual = () => {
         // created a function that uses the mathjs library in order to do the calculations
