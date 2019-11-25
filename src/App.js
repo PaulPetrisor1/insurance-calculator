@@ -17,6 +17,7 @@ class App extends React.Component {
 
     //function to  adding a value to the current state
     insertInput = value => {
+        console.log("jsandkjsandkjsa")
         if (value === '^' || value === '%' || value === '+' || value === '-' || value === '*' || value === '/') {
             if (value === this.state.insert[this.state.insert.length - 1]) {
                 value = ""
