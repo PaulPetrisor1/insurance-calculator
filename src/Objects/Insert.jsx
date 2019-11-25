@@ -1,10 +1,10 @@
 import React from 'react';
 import "../CSS/Insert.css";
 
- const Insert =(props) =>
+const Insert = (props) =>
 
- <div className ="insert">
- {props.insert}
- </div>
+    <div className="insert">
+     {props.insert}
+    </div>
 
- export default Insert;
+export default Insert;

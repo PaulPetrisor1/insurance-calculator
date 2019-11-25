@@ -1,17 +1,17 @@
-.button-container{
-display: flex;
-flex: 1;
-height: 3em;
-justify-content: center;
-align-items: center;
-font-weight: lighter;
-font-size: 1.2em;
-background-color: #B6CBF2;
-color: #black;
-outline: 2px solid #6E939D;
+.button-container {
+    display: flex;
+    flex: 1;
+    height: 3em;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.2em;
+    background-color: #B6CBF2;
+    color: #black;
+    outline: 2px solid #6E939D;
 }
 
-.operation{
-background-color: #941936;
-color: white;
+.operation {
+    background-color: #941936;
+    color: white;
 }

@@ -17,12 +17,26 @@ class App extends React.Component {
 
     //function to  adding a value to the current state
     insertInput = value => {
-        console.log("jsandkjsandkjsa")
+
+        // the next sections ensures that the user won't be able to input more than two consecutive operators\
+        console.log("test")
         if (value === '^' || value === '%' || value === '+' || value === '-' || value === '*' || value === '/') {
-            if (value === this.state.insert[this.state.insert.length - 1]) {
+
+            if (value === this.state.insert[this.state.insert.length - 1]
+                || (this.state.insert[this.state.insert.length - 1] === '^'
+                    || this.state.insert[this.state.insert.length - 1] === '%'
+                    || this.state.insert[this.state.insert.length - 1] === '+'
+                    || this.state.insert[this.state.insert.length - 1] === '-'
+                    || this.state.insert[this.state.insert.length - 1] === '*'
+                    || this.state.insert[this.state.insert.length - 1] === '/')) {
+
                 value = ""
+
             }
+
         }
+
+        //adding another value to the current state
         this.setState({insert: this.state.insert + value})
 
     };

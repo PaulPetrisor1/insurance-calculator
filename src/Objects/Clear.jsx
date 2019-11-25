@@ -2,13 +2,13 @@ import React from 'react';
 import '../CSS/Button.css';
 
 
-const Clear = (props)=>(
+const Clear = (props) => (
 
-  <div className="button-container" onClick={props.clearPrompt}>
+    <div className="button-container" onClick={props.clearPrompt}>
 
-  {props.children}
+        {props.children}
 
-  </div>
+    </div>
 
 );
 
